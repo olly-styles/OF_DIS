@@ -1,14 +1,16 @@
 %% Extract optical flow from UCF dataset store as JPEG
 addpath(genpath('../'));
-DATASET_PATH = '/media/olly/BCEF-A9E3/UCF101/';
-SAVE_PATH = '/media/olly/BCEF-A9E3/of_data/';
+DATASET_PATH = '/home/olly/cs/summer_2017/UCF101/'
+SAVE_PATH = '/media/olly/olly64gb/of_data/coarse2/';
 
 d = dir(DATASET_PATH);
 % Taken from https://tinyurl.com/y8szqdoa
 isub = [d(:).isdir]; % logical vector
 dir_names = {d(isub).name}'; % Directory names
 dir_names(ismember(dir_names,{'.','..'})) = []; % Remove . and ..
-dir_names = dir_names(18:end);
+
+dir_names = dir_names(1);
+
 for directory = dir_names'
     % Get complete path to dataset directory
     complete_path = strcat(DATASET_PATH,directory,'/');
