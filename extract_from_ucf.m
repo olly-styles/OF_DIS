@@ -9,8 +9,6 @@ isub = [d(:).isdir]; % logical vector
 dir_names = {d(isub).name}'; % Directory names
 dir_names(ismember(dir_names,{'.','..'})) = []; % Remove . and ..
 
-dir_names = dir_names(1);
-
 for directory = dir_names'
     % Get complete path to dataset directory
     complete_path = strcat(DATASET_PATH,directory,'/');
